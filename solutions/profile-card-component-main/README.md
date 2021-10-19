@@ -26,7 +26,7 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 ### Links
 
 - Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/profile-card-component-knwx9JLvK)
-- Live Site URL: [alansantos.net/order-summary-component/](https://www.alansantos.net/fm-profile-card/)
+- Live Site URL: [alansantos.net](https://www.alansantos.net/frontendmentor-solutions/solutions/profile-card-component-main/)
 
 ## 👨‍💻 My process
 
