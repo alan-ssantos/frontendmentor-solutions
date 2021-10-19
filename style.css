@@ -1,0 +1,134 @@
+/* BASE */
+html {
+  box-sizing: border-box;
+
+  /* COLORS */
+  --color-link: #0140ec;
+  --color-link-light: #769afe;
+  --color-link-dark: #012075;
+  --color-text: black;
+  --color-background: white;
+  --color-layout-border: #ccc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--color-text);
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--color-background);
+}
+
+h1,
+h2 p {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* HEADER */
+.header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-layout-border);
+}
+
+.header__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* CONTENT */
+.content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.content__items {
+  list-style: none;
+}
+
+.content__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.content__item__link {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 100%;
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.25s;
+}
+
+.content__item__link::after {
+  content: "→";
+  position: absolute;
+  right: 1rem;
+}
+
+.content__item__link:hover,
+.content__item__link:focus,
+.content__item__link:active {
+  color: var(--color-link);
+}
+
+.content__item__link:focus,
+.content__item__link:active {
+  box-shadow: 0 0 0 3px var(--color-link-light);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid var(--color-layout-border);
+}
+
+.footer__link {
+  padding: .2rem;
+  color: var(--color-link);
+  text-decoration: underline;
+  border: none;
+  outline: 1px auto transparent;
+  transition: 0.25s;
+}
+
+.footer__link:hover,
+.footer__link:focus,
+.footer__link:active {
+  color: var(--color-link-dark);
+  text-decoration: none;
+}
+
+.footer__link:focus,
+.footer__link:active {
+  outline-color: currentColor;
+}
