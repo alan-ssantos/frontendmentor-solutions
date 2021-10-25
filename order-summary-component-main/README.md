@@ -27,7 +27,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/order-summary-component-challenge-AGUtplkhw)
-- Live Site URL: [alansantos.net/order-summary-component/](https://www.alansantos.net/order-summary-component/)
+- Live Site URL: [fmentor-order-summary.netlify.app](https://fmentor-order-summary.netlify.app/)
 
 
 ## 👨‍💻 My process
