@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions)
-- Live Site URL: [?]()
+- Live Site URL: [fmentor-3-column-preview-card.netlify.app](https://fmentor-3-column-preview-card.netlify.app/)
 
 
 ## 👨‍💻 My process
