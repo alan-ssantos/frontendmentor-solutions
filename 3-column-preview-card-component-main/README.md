@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/3column-preview-card-component-a6JSRcQYy)
 - Live Site URL: [fmentor-3-column-preview-card.netlify.app](https://fmentor-3-column-preview-card.netlify.app/)
 
 
