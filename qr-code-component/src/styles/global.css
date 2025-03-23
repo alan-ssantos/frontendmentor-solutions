@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blue-500: #3685FF;
+  --color-blue-600: #2C7DFA;
+
+  --color-slate-300: oklch(90.49% 0.023 252.18);
+  --color-slate-500: oklch(56.5% 0.039 257.87);
+  --color-slate-900: oklch(31.34% 0.059 260.17);
+
+  --font-sans: 'Outfit Variable', sans-serif;
+}
