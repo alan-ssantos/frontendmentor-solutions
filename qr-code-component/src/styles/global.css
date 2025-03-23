@@ -10,3 +10,13 @@
 
   --font-sans: "Outfit Variable", sans-serif;
 }
+
+@layer components {
+  .footer-link {
+    @apply text-lime-500 transition duration-300 ease-linear hover:tracking-wide hover:text-lime-300;
+  }
+
+  .qrcode-button {
+    @apply flex h-9 w-9 shrink-0 cursor-pointer list-none items-center justify-center rounded border border-white/25 p-1 text-white/50 duration-200 ease-in-out hover:border-white/50 hover:text-white/75 focus:border-white/75 focus:text-white;
+  }
+}
