@@ -41,7 +41,7 @@ function QRCodeContainer() {
     <div ref={svgRef} className="group/svg relative grid aspect-square w-full place-items-center overflow-hidden rounded-[10px] bg-blue-600">
       <div className="absolute left-[-131.5px] top-[-50%] aspect-square w-[328px] rounded-full bg-blue-500"></div>
       <div className="absolute left-[131.5px] top-[204.5px] aspect-square w-[270px] rounded-full bg-blue-500"></div>
-      <QRCodeSVG className="z-10" value={qrCodeValue} size={160} bgColor="#fff0" fgColor="#fff" level="M" />
+      <QRCodeSVG className="z-10" value={qrCodeValue} size={160} bgColor="#fff0" fgColor="#fff" level="M" role="none" />
 
       <div
         ref={svgButtonsRef}
