@@ -1,0 +1,15 @@
+---
+export async function getStaticPaths() {
+	const response = await fetch("https://restcountries.com/v3.1/all");
+	const data = await response.json();
+
+	return data.map((country) => ({
+		params: { id: country.cca3.toLowerCase() },
+		props: { country }, // Passa os dados do post como props
+	}));
+}
+
+const { country } = Astro.props;
+---
+
+<h1>Hello! {country.name.common}!</h1>
