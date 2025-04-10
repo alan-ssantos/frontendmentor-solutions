@@ -97,7 +97,7 @@ const { country, borders } = Astro.props as Props;
 									<li>
 										<a
 											class="inline-flex items-center justify-center min-h-7 min-w-24 px-3 text-sm text-center rounded-sm shadow-[0_0_8px_rgba(0,0,0,.15)] transition-colors duration-300 hover:bg-lime-100"
-											href={border.cca3.toLocaleLowerCase()}
+											href={`/${border.cca3.toLocaleLowerCase()}`}
 										>
 											{border.name}
 										</a>
