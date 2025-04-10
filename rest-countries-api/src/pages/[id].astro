@@ -20,6 +20,10 @@ export async function getStaticPaths() {
 			})
 			.filter(Boolean);
 
+		if (country.cca3 === "ATA") {
+			console.log(borders);
+		}
+
 		return {
 			params: { id: country.cca3.toLowerCase() },
 			props: { country, borders },
@@ -61,7 +65,7 @@ const { country, borders } = Astro.props as Props;
 				<h1 class="text-[32px] font-extrabold tracking-[0.5px]">{country.name.common}</h1>
 				<div class="grid md:grid-cols-2 gap-2 md:gap-20 pb-10">
 					<ul class="flex flex-col gap-2">
-						<li><strong>Native Name:</strong> {Object.values(country.name.nativeName)[0]?.common || "N/A"}</li>
+						<li><strong>Native Name:</strong> {country.name.nativeName && (Object.values(country.name.nativeName)[0]?.common || "N/A")}</li>
 						<li><strong>Population:</strong> {country.population.toLocaleString()}</li>
 						<li><strong>Region:</strong> {country.region}</li>
 						<li><strong>Sub Region:</strong> {country.subregion}</li>
@@ -72,14 +76,15 @@ const { country, borders } = Astro.props as Props;
 						<li>
 							<strong>Currencies:</strong>
 							{
-								Object.values(country.currencies)
-									.map((currency) => currency.name)
-									.join(", ")
+								country.currencies &&
+									Object.values(country.currencies)
+										.map((currency) => currency.name)
+										.join(", ")
 							}
 						</li>
 						<li>
 							<strong>Languages:</strong>
-							{Object.values(country.languages).join(", ")}
+							{country.languages && Object.values(country.languages).join(", ")}
 						</li>
 					</ul>
 				</div>
