@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import type { Country } from "../types/country";
+
+const response = await fetch("http://localhost:4321/all.json");
+const data = await response.json();
+---
+
+<main class="container px-4 mx-auto">
+	<div class="py-12 flex flex-col md:flex-row justify-between gap-12">
+		<input type="text" placeholder="Search for a country" class="bg-white min-h-14 w-full max-w-[480px] shadow-md py-4 px-7 rounded-md" />
+		<select name="" id="" class="bg-white min-h-14 w-full max-w-[200px] shadow-md py-4 px-7 rounded-md">
+			<option value="" selected>Select by region</option>
+			<option value="Africa">Africa</option>
+			<option value="Americas">Americas</option>
+			<option value="Antarctic">Antarctic</option>
+			<option value="Asia">Asia</option>
+			<option value="Europe">Europe</option>
+			<option value="Oceania">Oceania</option>
+		</select>
+	</div>
+	<section class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:gap-[75px]">
+		{
+			data &&
+				data.map((country: Country, index: number) => (
+					<article class="flex flex-col bg-white rounded-md overflow-hidden shadow-md">
+						<Image
+							src={country.flags.png}
+							alt={`${country.name.common} flag`}
+							class="w-full aspect-[3/2] object-cover"
+							inferSize
+							loading={index < 8 ? "eager" : "lazy"}
+						/>
+						<div class="px-6 py-8">
+							<h2 class="text-lg font-bold text-black mb-4">
+								<a href={country.cca3.toLowerCase()}>{country.name.common}</a>
+							</h2>
+							<dl class="">
+								<div class="flex">
+									<dt class="font-bold mr-1">Population: </dt>
+									<dd>{country.population.toLocaleString()}</dd>
+								</div>
+								<div class="flex">
+									<dt class="font-bold mr-1">Region: </dt>
+									<dd>{country.region}</dd>
+								</div>
+								<div class="flex">
+									<dt class="font-bold mr-1">Capital: </dt>
+									<dd>{country.capital}</dd>
+								</div>
+							</dl>
+						</div>
+					</article>
+				))
+		}
+	</section>
+</main>

@@ -1,15 +1,108 @@
 ---
-export async function getStaticPaths() {
-	const response = await fetch("https://restcountries.com/v3.1/all");
-	const data = await response.json();
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import type { Country } from "../types/country";
 
-	return data.map((country) => ({
-		params: { id: country.cca3.toLowerCase() },
-		props: { country }, // Passa os dados do post como props
-	}));
+export interface Props {
+	country: Country;
+	borders: [{ cca3: string; name: string }];
 }
 
-const { country } = Astro.props;
+export async function getStaticPaths() {
+	const response = await fetch("http://localhost:4321/all.json");
+	const data: Country[] = await response.json();
+
+	return data.map((country) => {
+		const borders = (country.borders || [])
+			.map((b) => {
+				const bc = data.find((c) => c.cca3 === b);
+				return bc ? { cca3: bc.cca3, name: bc.name.common } : null;
+			})
+			.filter(Boolean);
+
+		return {
+			params: { id: country.cca3.toLowerCase() },
+			props: { country, borders },
+		};
+	});
+}
+
+const { country, borders } = Astro.props as Props;
 ---
 
-<h1>Hello! {country.name.common}!</h1>
+<Layout pageTitle={country.name.common}>
+	<div class="container px-4 mx-auto py-20 flex flex-col md:flex-row justify-between gap-12">
+		<a
+			href="/"
+			title="Go back to home page"
+			class="flex items-center gap-3 bg-white min-h-10 w-fit min-w-[136px] shadow-[0_0_8px_rgba(0,0,0,.25)] px-8 rounded-md"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+				<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+				<path
+					d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
+				></path>
+			</svg>
+			<span>Back </span>
+		</a>
+	</div>
+	<main class="container px-4 mx-auto">
+		<section class="grid md:grid-cols-2 items-center gap-10 xl:gap-20">
+			<div class="">
+				<Image
+					src={country.flags.png}
+					alt={`${country.name.common} flag`}
+					class="w-full max-w-[560px] aspect-[560/401] object-contain"
+					inferSize
+					loading="eager"
+				/>
+			</div>
+			<div class="flex flex-col justify-evenly h-full">
+				<h1 class="text-[32px] font-extrabold tracking-[0.5px]">{country.name.common}</h1>
+				<div class="grid md:grid-cols-2 gap-2 md:gap-20 pb-10">
+					<ul class="flex flex-col gap-2">
+						<li><strong>Native Name:</strong> {Object.values(country.name.nativeName)[0]?.common || "N/A"}</li>
+						<li><strong>Population:</strong> {country.population.toLocaleString()}</li>
+						<li><strong>Region:</strong> {country.region}</li>
+						<li><strong>Sub Region:</strong> {country.subregion}</li>
+						<li><strong>Capital:</strong> {country.capital?.join(", ") || "N/A"}</li>
+					</ul>
+					<ul class="flex flex-col gap-2">
+						<li><strong>Top Level Domain:</strong> {country.tld?.join(", ") || "N/A"}</li>
+						<li>
+							<strong>Currencies:</strong>
+							{
+								Object.values(country.currencies)
+									.map((currency) => currency.name)
+									.join(", ")
+							}
+						</li>
+						<li>
+							<strong>Languages:</strong>
+							{Object.values(country.languages).join(", ")}
+						</li>
+					</ul>
+				</div>
+				{
+					borders && borders.length > 0 && (
+						<section class="flex gap-2">
+							<h2 class="font-bold shrink-0">Border Countries:</h2>
+							<ul class="w-full flex flex-wrap gap-3">
+								{borders.map((border) => (
+									<li>
+										<a
+											class="inline-flex items-center justify-center min-h-7 min-w-24 px-3 text-sm text-center rounded-sm shadow-[0_0_8px_rgba(0,0,0,.15)] transition-colors duration-300 hover:bg-lime-100"
+											href={border.cca3.toLocaleLowerCase()}
+										>
+											{border.name}
+										</a>
+									</li>
+								))}
+							</ul>
+						</section>
+					)
+				}
+			</div>
+		</section>
+	</main>
+</Layout>
