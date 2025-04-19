@@ -20,10 +20,6 @@ export async function getStaticPaths() {
 			})
 			.filter(Boolean);
 
-		if (country.cca3 === "ATA") {
-			console.log(borders);
-		}
-
 		return {
 			params: { id: country.cca3.toLowerCase() },
 			props: { country, borders },
