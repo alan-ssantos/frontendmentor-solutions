@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Home from "../components/Home";
 
-const response = await fetch("https://restcountries.com/v3.1/all");
-let data = await response.json();
+import { fetchCountries } from "../utils/fetchCountries";
+
+const data = await fetchCountries();
 ---
 
 <Layout>
