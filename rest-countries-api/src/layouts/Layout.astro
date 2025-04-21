@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "@fontsource-variable/nunito-sans";
 
+import ThemeHeadScript from "../components/ThemeHeadScript.astro";
 import Navigation from "../components/Navigation.astro";
 
 let pageTitle = "Where in the world?";
@@ -10,13 +11,14 @@ let pageTitle = "Where in the world?";
 <!doctype html>
 <html lang="en">
 	<head>
+		<ThemeHeadScript />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
+	<body class="bg-neutral-50 text-black dark:bg-gray-800 dark:text-white">
 		<Navigation />
 		<slot />
 	</body>

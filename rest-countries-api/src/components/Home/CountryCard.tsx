@@ -6,26 +6,26 @@ interface CountryCardProps {
 
 const CountryCard = ({ country }: CountryCardProps) => {
 	return (
-		<article className="flex flex-col bg-white rounded-md overflow-hidden shadow-md">
-			<img src={country.flags.png} alt={country.flags.alt ?? `Flag of ${country.name.common}`} className="w-full aspect-[3/2] object-contain" />
-			<div className="px-6 py-8">
-				<h2 className="text-lg font-bold text-black mb-4">
-					<a href={country.cca3.toLowerCase()} aria-label={`View details about ${country.name.common}`}>
+		<article className="flex flex-col bg-white dark:bg-gray-700 rounded-md overflow-hidden shadow-md">
+			<img src={country.flags.png} alt={country.flags.alt ?? `Flag of ${country.name.common}`} className="w-full aspect-[264/160] object-cover" />
+			<div className="px-6 pt-7 pb-10">
+				<h2 className="text-lg font-bold mb-4 duration-300 transition-colors hover:text-blue-600 dark:hover:text-blue-300">
+					<a href={country.cca3.toLowerCase()} title={`View details about ${country.name.common}`}>
 						{country.name.common}
 					</a>
 				</h2>
 				<dl className="">
 					<div className="flex">
-						<dt className="font-bold mr-1">Population: </dt>
-						<dd>{country.population.toLocaleString()}</dd>
+						<dt className="text-sm my-0.5 font-semibold mr-1">Population: </dt>
+						<dd className="opacity-75">{country.population.toLocaleString()}</dd>
 					</div>
 					<div className="flex">
-						<dt className="font-bold mr-1">Region: </dt>
-						<dd>{country.region}</dd>
+						<dt className="text-sm my-0.5 font-semibold mr-1">Region: </dt>
+						<dd className="opacity-75">{country.region}</dd>
 					</div>
 					<div className="flex">
-						<dt className="font-bold mr-1">Capital: </dt>
-						<dd>{country.capital?.join(", ") || "N/A"}</dd>
+						<dt className="text-sm my-0.5 font-semibold mr-1">Capital: </dt>
+						<dd className="opacity-75">{country.capital?.join(", ") || "N/A"}</dd>
 					</div>
 				</dl>
 			</div>

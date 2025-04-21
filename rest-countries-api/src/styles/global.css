@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Nunito Sans Variable', sans-serif;
+
+  --color-gray-50: oklch(96.2% 0.006 239.82);
+  --color-gray-100: oklch(92.33% 0.011 234.83);
+  --color-gray-200: oklch(83.64% 0.023 237.7);
+  --color-gray-300: oklch(75.48% 0.035 240.01);
+  --color-gray-400: oklch(66.38% 0.049 239.73);
+  --color-gray-500: oklch(58.22% 0.058 239.64);
+  --color-gray-600: oklch(49.24% 0.048 240.4);
+  --color-gray-700: oklch(33.11% 0.027 248.64);
+  --color-gray-800: oklch(28.93% 0.024 238.89);
+  --color-gray-900: oklch(19.19% 0.014 243.69);
+  --color-gray-950: oklch(14.7% 0.007 235.97);
+}
+
+@layer components {
+  .dropdown-button {
+    @apply inline-flex items-center leading-4 gap-2 px-4 py-3 rounded-sm text-black duration-300 cursor-pointer hover:text-blue-600 hover:bg-blue-500/10 focus:ring-1 focus:outline-hidden dark:text-white dark:hover:text-blue-200
+  }
 }

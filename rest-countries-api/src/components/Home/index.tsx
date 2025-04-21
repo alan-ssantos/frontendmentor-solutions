@@ -32,7 +32,7 @@ const Home = ({ countries }: HomeProps) => {
 	}, [inputSearchValue]);
 
 	return (
-		<main className="container px-4 mx-auto">
+		<main className="container px-3 xl:px-0 mx-auto">
 			<div className="py-12 flex flex-col md:flex-row justify-between gap-12">
 				<SearchInput value={inputSearchValue} onChange={handleInputSearch} />
 				<RegionDropdown options={regions} onChange={handleRegionDropdown} />
