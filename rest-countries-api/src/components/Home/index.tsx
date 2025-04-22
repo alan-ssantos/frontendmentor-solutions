@@ -33,6 +33,7 @@ const Home = ({ countries }: HomeProps) => {
 
 	return (
 		<main className="container px-3 xl:px-0 mx-auto">
+      <h1 className="sr-only">Where in the world?</h1>
 			<div className="py-12 flex flex-col md:flex-row justify-between gap-12">
 				<SearchInput value={inputSearchValue} onChange={handleInputSearch} />
 				<RegionDropdown options={regions} onChange={handleRegionDropdown} />

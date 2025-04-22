@@ -1,48 +1,59 @@
-# Astro Starter Kit: Basics
+# Frontend Mentor | QR Code Component
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is my solution to the [REST Countries API with color theme switcher](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca) using Astro, React and Tailwind CSS.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 📜 Table of contents
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🔎 Overview
 
-## 🚀 Project Structure
+### The challenge
 
-Inside of your Astro project, you'll see the following folders and files:
+- Integrate the REST Countries API to pull country data and display it like in the designs
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+#### Users should be able to:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- See all countries from the API on the homepage ✅
+- Search for a country using an input field ✅
+- Filter countries by region ✅
+- Click on a country to see more detailed information on a separate page ✅
+- Click through to the border countries on the detail page ✅
+- View the optimal layout for the interface depending on their device's screen size ✅
+- See hover and focus states for all interactive elements on the page ✅
+- Bonus: Toggle the color scheme between light and dark mode ✅
 
-## 🧞 Commands
+### Screenshot
 
-All commands are run from the root of the project, from a terminal:
+![](public/screenshot.png)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Links
 
-## 👀 Want to learn more?
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/rest-countries-astro-react-and-tailwind-css-sjLNaZiyAa)
+- Live Site URL: [fmentor-rest-countries-api.netlify.app](https://fmentor-rest-countries-api.netlify.app/)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 👨‍💻 My process
+
+### Built with
+
+- [Astro](https://astro.build/)
+- [React](https://react.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Hosted on Netlify](https://www.netlify.com/)
+
+### Useful resources
+
+- [REST Countries](https://restcountries.com/) - Information about countries via a RESTful API
+- [react-icons](https://react-icons.github.io/react-icons/) - Icons
+
+## 🙋‍♂️ Author
+
+- Website - [Alan Santos](https://alansantos.dev.br/)
+- Frontend Mentor - [@alan-ssantos](https://www.frontendmentor.io/profile/alan-ssantos)
