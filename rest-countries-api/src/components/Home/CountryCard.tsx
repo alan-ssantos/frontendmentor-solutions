@@ -2,12 +2,18 @@ import type { Country } from "../../types/country";
 
 interface CountryCardProps {
 	country: Country;
+	imageLazy: boolean;
 }
 
-const CountryCard = ({ country }: CountryCardProps) => {
+const CountryCard = ({ country, imageLazy }: CountryCardProps) => {
 	return (
 		<article className="flex flex-col bg-white dark:bg-gray-700 rounded-md overflow-hidden shadow-md">
-			<img src={country.flags.png} alt={country.flags.alt ?? `Flag of ${country.name.common}`} className="w-full aspect-[264/160] object-cover" />
+			<img
+				src={country.flags.png}
+				alt={country.flags.alt ?? `Flag of ${country.name.common}`}
+				className="w-full aspect-[264/160] object-cover"
+				loading={imageLazy ? "lazy" : "eager"}
+			/>
 			<div className="px-6 pt-7 pb-10">
 				<h2 className="text-lg font-bold mb-4 duration-300 transition-colors hover:text-blue-600 dark:hover:text-blue-300">
 					<a href={country.cca3.toLowerCase()} title={`View details about ${country.name.common}`}>

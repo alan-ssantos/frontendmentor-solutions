@@ -37,13 +37,13 @@ const Home = ({ countries }: HomeProps) => {
 				<SearchInput value={inputSearchValue} onChange={handleInputSearch} />
 				<RegionDropdown options={regions} onChange={handleRegionDropdown} />
 			</div>
-			<section className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:gap-[75px]">
+			<div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:gap-[75px]">
 				{countriesList?.length > 0 ? (
-					countriesList.map((country: Country) => <CountryCard country={country} key={country.cca3} />)
+					countriesList.map((country: Country, index) => <CountryCard country={country} imageLazy={index > 8} key={country.cca3} />)
 				) : (
 					<p>Sorry, but we couldn't find any countries</p>
 				)}
-			</section>
+			</div>
 		</main>
 	);
 };

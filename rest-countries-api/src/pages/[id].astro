@@ -6,7 +6,7 @@ import type { Country } from "../types/country";
 import { fetchCountries } from "../utils/fetchCountries";
 import { PiArrowLeftBold } from "react-icons/pi";
 
-export interface Props {
+interface DetailProps {
 	country: Country;
 	borders: [{ cca3: string; name: string }];
 }
@@ -29,10 +29,10 @@ export async function getStaticPaths() {
 	});
 }
 
-const { country, borders } = Astro.props as Props;
+const { country, borders } = Astro.props as unknown as DetailProps;
 ---
 
-<Layout pageTitle={country.name.common}>
+<Layout pageTitle=`${country.name.common} | Where in the world?`>
 	<div class="container px-4 mx-auto py-20 flex flex-col md:flex-row justify-between gap-12">
 		<a
 			href="/"

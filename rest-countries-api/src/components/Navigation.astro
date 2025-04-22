@@ -2,10 +2,10 @@
 import ThemeDropdown from "./ThemeDropdown";
 ---
 
-<header class="sticky top-0 w-full h-20 shadow-[0_0_8px_rgba(0,0,0,.08)] bg-white dark:bg-gray-700 dark:text-white z-50">
+<header class="sticky px-3 xl:px-0 top-0 w-full h-20 shadow-[0_0_8px_rgba(0,0,0,.08)] bg-white dark:bg-gray-700 dark:text-white z-50">
 	<div class="container m-auto h-full flex justify-between items-center">
-		<a href="/" class="text-2xl font-extrabold">Where in the world?</a>
+		<a href="/" class="text-xl xl:text-2xl font-extrabold">Where in the world?</a>
 
-		<ThemeDropdown client:visible />
+		<ThemeDropdown client:load />
 	</div>
 </header>

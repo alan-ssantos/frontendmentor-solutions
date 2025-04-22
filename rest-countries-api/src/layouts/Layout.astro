@@ -5,7 +5,7 @@ import "@fontsource-variable/nunito-sans";
 import ThemeHeadScript from "../components/ThemeHeadScript.astro";
 import Navigation from "../components/Navigation.astro";
 
-let pageTitle = "Where in the world?";
+const { pageTitle = "Where in the world?" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +17,10 @@ let pageTitle = "Where in the world?";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<meta
+			name="description"
+			content="Explore data from over 250 countries (population, region, capital, flags) via a free REST API. Filter by region and toggle between light and dark themes."
+		/>
 	</head>
 	<body class="bg-neutral-50 text-black dark:bg-gray-800 dark:text-white">
 		<Navigation />
