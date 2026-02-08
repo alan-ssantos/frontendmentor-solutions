@@ -1,0 +1,103 @@
+:root {
+  --green: 75, 94%, 57%;
+  --white: 0, 0%, 100%;
+  --grey-700: 0, 0%, 20%;
+  --grey-800: 0, 0%, 12%;
+  --grey-900: 0, 0%, 8%;
+}
+
+body {
+  color: hsl(var(--white));
+  font-family: "Inter Variable", sans-serif;
+  background-color: hsl(var(--grey-900));
+}
+
+.wrapper {
+  width: 100%;
+  height: 100dvh;
+  min-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.profile {
+  width: 100%;
+  max-width: 384px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.375rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
+  border-radius: .625rem;
+  background-color: hsl(var(--grey-800));
+}
+
+.profile .profile__header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.profile .profile__header .profile__picture {
+  max-width: 5.625rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 999px;
+  margin-bottom: 1.75rem;
+}
+
+.profile .profile__header .profile__name {
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile .profile__header .profile__local strong {
+  color: hsl(var(--green));
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.profile .profile__description {
+  font-size: .875rem;
+  opacity: .75;
+}
+
+.profile .profile__links {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.profile .profile__links .links__link {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .875rem 1.5rem;
+  color: hsl(var(--white));
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .375rem;
+  background-color: hsl(var(--grey-700));
+  transition: ease-out 300ms;
+  transition-property: color, background;
+  outline: none;
+}
+
+.profile .profile__links .links__link:hover {
+  color: hsl(var(--grey-900));
+  background-color: hsl(var(--green));
+}
+
+.profile .profile__links .links__link:focus-visible {
+  color: hsl(var(--grey-900));
+  background-color: hsla(var(--green), 75%);
+  box-shadow: 0 0 0 3px hsla(var(--green), 30%);
+}
