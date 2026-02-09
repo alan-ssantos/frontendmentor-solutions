@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useParams } from "react-router";
-import type { ApiUserInterface, ApiErrorInterface } from "./types/api";
+
+import fetcher from "./api/fetcher";
 
 import Profile from "./components/Profile/Profile";
 import ProfileHeader from "./components/Profile/ProfileHeader";
@@ -12,25 +13,6 @@ import ProfileNavLinks from "./components/Profile/ProfileNavLinks";
 import ProfileLink from "./components/Profile/ProfileLink";
 
 const API_URL = import.meta.env.VITE_GITHUB_API_URL;
-
-async function fetcher(key: string): Promise<ApiUserInterface> {
-  const response = await fetch(key);
-
-  if (!response.ok) {
-    if (response.status === 404) {
-      throw new Error("Usuário não encontrado!");
-    }
-
-    if (response.status === 403) {
-      throw new Error("Limite de requisições atingido!");
-    }
-
-    const responseError: ApiErrorInterface = await response.json().catch(() => ({}));
-    throw new Error(responseError.message || `Erro ${response.status}: ${response.statusText}`);
-  }
-
-  return await response.json();
-}
 
 function App() {
   const { username } = useParams();
