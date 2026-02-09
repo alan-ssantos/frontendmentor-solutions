@@ -1,8 +1,7 @@
-import type { ReactElement } from "react";
-import type { ProfileLinkProps } from "./ProfileLink";
+import type { ReactNode } from "react";
 
 export type ProfileNavLinksProps = {
-  children: ReactElement<ProfileLinkProps>[];
+  children: ReactNode;
 };
 
 function ProfileNavLinks({ children }: ProfileNavLinksProps) {
