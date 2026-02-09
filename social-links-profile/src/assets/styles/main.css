@@ -42,11 +42,13 @@ body {
 }
 
 .profile .profile__header .profile__picture {
+  width: 100%;
   max-width: 5.625rem;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 999px;
   margin-bottom: 1.75rem;
+  background-color: hsl(var(--grey-700));
 }
 
 .profile .profile__header .profile__name {
